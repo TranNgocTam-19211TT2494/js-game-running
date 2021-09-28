@@ -8,6 +8,7 @@ let chara = {
     jumpForce: 29.6,
     numberJumps: 0,
     score: 0,
+    score1: 0,
     anim: 0,
     count: 0,
     timeChange: 0,

@@ -49,8 +49,95 @@ iframe {
   color: #ff9900;
 }
 
-.github-corner svg {
-  fill:#3f3f3f; color:#fff; position: absolute; top: 0; border: 0; right: 0;
+span {
+  position: relative;
+  display: inline-flex;
+  height: 45px;
+  width: 150px;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+.span-setting {
+  position: relative;
+  display: inline-flex;
+  height: 45px;
+  width: 150px;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+.span-setting .a-setting {
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+}
+span a {
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
-.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+span a:before,
+span a:after {
+  position: absolute;
+  content: "BACK";
+  height: 45px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.span-setting .a-setting:before,
+.span-setting .a-setting:after {
+  position: absolute;
+  content: "SETTING";
+  height: 45px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.span-setting .a-setting:before {
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+span a:before {
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+span a:after {
+  color: #000;
+  transform: rotateX(90deg) translateZ(25px);
+}
+.span-setting .a-setting:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+span a:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+.setting-game {
+  float: right;
+  position: relative;
+  top: -50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+

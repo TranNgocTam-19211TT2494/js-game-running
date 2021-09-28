@@ -2,8 +2,16 @@ function drawScore() {
     context.fillStyle = "#242424";
     context.font = "20px Arial";
 
+    //Mức điểm đã chơi : 
+    context.fillText("Best score " + rank, 260, 20);
+
     if (currentState == states.playing) {
         context.fillText("score : " + chara.score, 10, 20);
+    }
+
+    // Tính xu
+    if (currentState == states.playing) {
+        context.fillText("coins : " + chara.score1, 120, 20);
     }
 
     if (currentState == states.lost) {
@@ -29,13 +37,13 @@ function drawScore() {
 
         // Mức điểm
         if (chara.score < 10) {
-            context.fillText("Score : " + chara.score, -13, 15);
+            context.fillText("Score : " + chara.score, -10, 15);
         }
         else if (chara.score >= 10 && chara.score < 100) {
-            context.fillText("Score : " + chara.score, -26, 19);
+            context.fillText("Score : " + chara.score, -15, 19);
         }
         else {
-            context.fillText("Score : " + chara.score, -39, 19);
+            context.fillText("Score : " + chara.score, -20, 19);
         }
         context.restore();
     }
