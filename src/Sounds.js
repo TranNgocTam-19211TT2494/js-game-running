@@ -36,10 +36,10 @@ let sounds = {
     },
     openingTheme: function (isOpening) {
         if (isOpening == true && soundEnabled) {
-            sounds.opening_theme.pause();
+            sounds.opening_theme.play();
         }
         else {
-            sounds.opening_theme.play();
+            sounds.opening_theme.pause();
             sounds.opening_theme.currentTime = 0.0;
         }
     },
