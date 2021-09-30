@@ -26,7 +26,7 @@ let chara = {
                 this.anim = 2;
             }
             this.count++;
-            console.log(this.count);
+           
         }
        
         else {

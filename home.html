@@ -64,14 +64,36 @@
         <h1 class="title">Obstacle Game</h1>
         <ul class="content">
             <li>
-                <a href="index.html" class="play-game">
+                <a href="index.html" class="play-game" id="play">
                     Play game
-
                 </a>
             </li>
-            <li>Top</li>
+            <select name="level" id="level" onchange="levelChanged(this)">
+                <option value="">Level</option>
+                <option value="easy">Easy</option>
+                <option value="fit">Fit</option>
+                <option value="difficult">Difficult</option>
+            </select>
             <li>Settings</li>
         </ul>
     </div>
 </body>
+<script>
+    function levelChanged(obj) {
+        var message = document.getElementById('play');
+        var value = obj.value;
+        if (value === '') {
+            message.setAttribute("href", "index.html");
+        }
+        else if (value === 'easy') {
+            message.setAttribute("href", "index2.html");
+        }
+        else if (value === 'fit') {
+            message.setAttribute("href", "index3.html");
+        }
+        else if (value === 'difficult') {
+            message.setAttribute("href", "index4.html");
+        }
+    }
+</script>
 </html>
