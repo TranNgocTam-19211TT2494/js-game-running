@@ -24,41 +24,35 @@ let coins = {
         for (let i = 0, size = this._obs.length; i < size; i++) {
             let obs = this._obs[i];
             obs.x -= speed;
-            console.log(ground.y);
-            // Collision
-            if (chara.x < obs.x - this.widths[obs.number] && chara.x - chara.width >=
-                obs.x && chara.y - chara.height > ground.y - this.heights[obs.number]) {
-               currentState = states.lost;
-                if (soundEnabled) {
-                    sounds.lostSound();
-                }
-                
-                chara.collided();
-            }
-            else if (obs.x <= -obs.x + 200) {
-               
+            
+           
+           if (obs.x <= -obs.x + 200) {
+
                 if (soundEnabled) {
                     sounds.scoreSound();
                 }
-                // Tính quà
-                chara.score1++;
-               
-                this._obs.splice(i, 1);
-                size--;
-                i--;
+                if (currentState == states.playing) {
+                    // Tính quà
+                    chara.score1++;
+
+                    this._obs.splice(i, 1);
+                    size--;
+                    i--;
+                }
+
             }
         }
     },
 
     clean: function () {
-        this._obs = [];
+        this._obs = [0];
     },
 
     draw: function () {
         for (let i = 0, size = this._obs.length; i < size; i++) {
             let obs = this._obs[i];
-            coin[obs.number].draw(context,  obs.x , (ground.y + this.heights[obs.number]) / 2);
-          
+            coin[obs.number].draw(context, obs.x, (ground.y + this.heights[obs.number]) / 2);
+
         }
     }
 }

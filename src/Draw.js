@@ -16,10 +16,7 @@ function draw() {
     
     coin[0].draw(context, 0, 0);
     coin[1].draw(context, 0, 0);
-    // coin[2].draw(context, 0, 0);
-    // coin[3].draw(context, 0, 0);
-    // coin[4].draw(context, 0, 0);
-    // coin[5].draw(context, 0, 0);
+
    
 
     context.clearRect(0, 0, WIDTH, HEIGHT);

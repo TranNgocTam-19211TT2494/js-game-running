@@ -11,7 +11,10 @@ let chara = {
     score1: 0,
     anim: 0,
     count: 0,
+    countTime: 30,
     timeChange: 0,
+
+
 
     // Chuyển động : trạng thái
     changeImage: function () {
@@ -19,16 +22,22 @@ let chara = {
             if (this.count > 0) {
                 this.anim = 0;
             }
-            else if(this.count > 1) {
+            else if (this.count > 1) {
                 this.anim = 3;
             }
             else {
                 this.anim = 2;
             }
             this.count++;
-           
+            // console.log(this.count);
+            if (this.count == 7 || this.count == 14 || this.count == 20) {
+                chara.countTime--;
+                if (chara.countTime == 0) {
+                    currentState = states.lost;
+                }
+            }
         }
-       
+
         else {
             this.anim = 0;
             this.count = 1;
@@ -40,11 +49,10 @@ let chara = {
         this.count = 18;
         this.anim = 3;
     },
-   
+
     update: function () {
         this.speed += this.gravity;
         this.y += this.speed;
-        
         if (this.y > ground.y - this.height && currentState != states.lost) {
             this.y = ground.y - this.height;
             this.numberJumps = 0;
@@ -68,11 +76,12 @@ let chara = {
     },
 
     reset: function () {
+        chara.countTime = 30;
         this.speed = 0;
         this.y = 0;
         this.anim = 0;
         this.timeChange = 0;
-        
+
         if (this.score > rank) {
             localStorage.setItem("rank", this.score);
             rank = this.score;

@@ -2,6 +2,11 @@ function drawScore() {
     context.fillStyle = "#242424";
     context.font = "20px Arial";
 
+    // Set Thời gian
+    if (currentState == states.playing) {
+        context.fillText("Time: " + chara.countTime, 10, 50);
+    }
+
     //Mức điểm đã chơi : 
     context.fillText("Best score " + rank, 260, 20);
 
