@@ -20,7 +20,7 @@ function drawScore() {
     }
 
     if (currentState == states.lost) {
-        context.fillStyle = "#e74c3c";
+        context.fillStyle = "black";
         context.fillRect(Math.floor(WIDTH / 2 - 22), Math.floor(HEIGHT / 2 - 45), 100, 50);
         context.save();
         context.translate(Math.floor(WIDTH / 2), Math.floor(HEIGHT / 2 - 30));

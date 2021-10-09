@@ -15,21 +15,54 @@
 </head>
 
 <body>
-  <section id="background"></section>
+  <div class="blur"></div>
+  <div class="main" id="main">
+    <section id="background"></section>
 
 
-  <section id="game">
-    <iframe id="game_frame" src="game2.html"></iframe>
-  </section>
+    <section id="game">
+      <iframe id="game_frame" src="game3.html"></iframe>
+    </section>
 
-  <div class="back-game  ">
-    <span><a href="home.html"></a></span>
+    <!-- Thông tin -->
+    <div class="class-detail">
+      <div class="center-outer">
+        <div class="center-inner">
+
+          <div class="bubbles">
+            <h1>Team 2</h1>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="back-game">
+      <span><a href="home.html"></a></span>
+    </div>
+
+    <div class="setting-game">
+      <span class="span-setting"><a class="a-setting" href="setting.html"></a></span>
+    </div>
+    <div class="support-game">
+      <span class="span-support"><a class="a-support" href="support.html"></a></span>
+    </div>
+    <!-- Lời nhắn -->
+    <div class="box-text">
+      <p>
+        If you have a question or feedback, contact us via the <b>"SUPPORT"</b> button.
+      </p>
+      <p style="text-align: center;">
+        Thank you for coming.
+      </p>
+    </div>
   </div>
-  <div class="setting-game">
-    <span class="span-setting"><a class="a-setting" href="setting.html"></a></span>
-  </div>
+  <div class="particles" id="particles"></div>
+
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./src/Animation.js"></script>
+<script src="./src/TextEffect.js"></script>
 </html>
 
 <script>document.getElementById("game_frame").focus()</script>

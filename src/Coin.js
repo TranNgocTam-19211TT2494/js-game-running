@@ -7,10 +7,9 @@ let coins = {
     insert: function () {
         this._obs.push({
             x: WIDTH,
-            y: HEIGHT,
+            y: -10,
             number: Math.floor(2 * Math.random()),
-            width: this.widths[this.number],
-            height: this.heights[this.number]
+          
         });
         this.timeToInsert = 300 + Math.floor(50 * Math.random());
     },
@@ -24,34 +23,28 @@ let coins = {
         for (let i = 0, size = this._obs.length; i < size; i++) {
             let obs = this._obs[i];
             obs.x -= speed;
-            
-           
+
+            // Collision
            if (obs.x <= -obs.x + 200) {
-
-                if (soundEnabled) {
-                    sounds.scoreSound();
-                }
-                if (currentState == states.playing) {
-                    // Tính quà
+                if (150 <= chara.y && chara.y < 310) {
                     chara.score1++;
-
-                    this._obs.splice(i, 1);
-                    size--;
-                    i--;
                 }
-
+                
+                this._obs.splice(i, 1);
+                size--;
+                i--;
             }
         }
     },
 
     clean: function () {
-        this._obs = [0];
+        this._obs = [];
     },
 
     draw: function () {
         for (let i = 0, size = this._obs.length; i < size; i++) {
             let obs = this._obs[i];
-            coin[obs.number].draw(context, obs.x, (ground.y + this.heights[obs.number]) / 2);
+            coin[0].draw(context, obs.x, (ground.y + this.heights[obs.number]) / 2);
 
         }
     }

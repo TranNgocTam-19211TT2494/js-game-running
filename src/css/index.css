@@ -6,18 +6,18 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-#background {
+/* #background {
   position: absolute;
   background-image: url(../sprites/Backgroup.jpg);
   width: 100%;
   height: 110%;
   filter: blur(10px);
   z-index: -1;
-}
+} */
 
 #game {
   display: flex;
-  width: 100%;
+  width: 50%;
   height: 600px;
   flex-flow: column;
   align-items: center;
@@ -65,8 +65,24 @@ span {
   margin: 0 15px;
   perspective: 1000px;
 }
+.support-game {
+  position: relative;
+  display: inline-flex;
+  height: 45px;
+  width: 150px;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+.span-support .a-support {
+  font-size: 16px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+}
 .span-setting .a-setting {
-  font-size: 19px;
+  font-size: 16px;
   letter-spacing: 1px;
   transform-style: preserve-3d;
   transform: translateZ(-25px);
@@ -74,7 +90,7 @@ span {
   font-family: 'Montserrat', sans-serif;
 }
 span a {
-  font-size: 19px;
+  font-size: 16px;
   letter-spacing: 1px;
   transform-style: preserve-3d;
   transform: translateZ(-25px);
@@ -99,7 +115,7 @@ span a:after {
 .span-setting .a-setting:before,
 .span-setting .a-setting:after {
   position: absolute;
-  content: "SETTING";
+  content: "GUIDE";
   height: 45px;
   width: 150px;
   display: flex;
@@ -114,7 +130,24 @@ span a:after {
   background: #000;
   transform: rotateY(0deg) translateZ(25px);
 }
-
+.span-support .a-support:before,
+.span-support .a-support:after {
+  position: absolute;
+  content: "SUPPORT";
+  height: 45px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.span-support .a-support:before {
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
 span a:before {
   color: #fff;
   background: #000;
@@ -128,16 +161,156 @@ span a:after {
 .span-setting .a-setting:hover {
   transform: translateZ(-25px) rotateX(-90deg);
 }
+.span-support .a-support:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
 span a:hover {
   transform: translateZ(-25px) rotateX(-90deg);
 }
 
 .setting-game {
   float: right;
-  position: relative;
-  top: -50px;
-  bottom: 0;
+}
+.blur,
+.main,
+.particles {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
   left: 0;
-  right: 0;
+  z-index: 1;
 }
 
+.blur {
+  /*    background-color: #212121; */
+  background-image: url("https://th.bing.com/th/id/OIP.IWbURBpxClqw5WwLNZqArwHaEK?pid=ImgDet&rs=1");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  transform: scale(1.2);
+  /*     animation: bg 8s linear infinite alternate; */
+
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.title {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  letter-spacing: 15px;
+  padding: 12.5px 25px;
+  text-shadow: 1px 1px 10px black;
+  border: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 4px;
+  color: white;
+}
+
+.particles {
+  position: absolute;
+  overflow: hidden;
+}
+
+.particle {
+  border-radius: 50%;
+  filter: blur(3px);
+  position: absolute;
+}
+
+@keyframes bg {
+  0% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  10%,
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(45vw);
+    opacity: 0;
+  }
+}
+/* Text Effect */
+.class-detail {
+  position: absolute;
+  top: -180px;
+  right: 18%;
+  bottom: 0;
+}
+
+.class-detail h1 {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: white;
+}
+
+.center-outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.center-inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Essential CSS - Makes the effect work */
+
+body {
+  background-color: #3498db;
+}
+
+.bubbles {
+  display: inline-block;
+  font-family: arial;
+  position: relative;
+}
+
+.bubbles h1 {
+  position: relative;
+  margin: 1em 0 0;
+  font-family: 'Luckiest Guy', cursive;
+  color: #fff;
+  z-index: 2;
+  
+}
+
+.individual-bubble {
+  position: absolute;
+  border-radius: 100%;
+  bottom: 10px;
+  background-color: #fff;
+  z-index: 1;
+}
+.box-text {
+  position: absolute;
+  top: 360px;
+  right: 70px;
+  color: white;
+}
+.box-text p b {
+  color: #000;
+}

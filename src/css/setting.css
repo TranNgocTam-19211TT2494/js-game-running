@@ -1,0 +1,61 @@
+
+
+.title {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+span {
+    position: absolute;
+    display: inline-flex;
+    height: 45px;
+    width: 150px;
+    margin: 0 15px;
+    perspective: 1000px;
+}
+
+span a {
+    font-size: 16px;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(-25px);
+    transition: transform .25s;
+   
+}
+
+span a:before,
+span a:after {
+    position: absolute;
+    content: "BACK";
+    height: 45px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+span a:hover {
+    transform: translateZ(-25px) rotateX(-90deg);
+}
+
+span a:before {
+    color: #fff;
+    background: #000;
+    transform: rotateY(0deg) translateZ(25px);
+}
+
+span a:after {
+    color: #000;
+    transform: rotateX(90deg) translateZ(25px);
+}
+
+/* .back-game {
+    position: relative;
+    left: -67%;
+    right: 0;
+    top: 45%;
+    bottom: 0;
+} */

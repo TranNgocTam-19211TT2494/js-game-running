@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run now</title>
+    <link rel="shortcut icon" type="image/x-icon" href="src/sprites/frame-iconpng.png" />
+    <link rel="stylesheet" href="./src/css/support.css">
+    <style>
+        span {
+            position: relative;
+            display: inline-flex;
+            height: 45px;
+            width: 150px;
+            margin: 0 15px;
+            perspective: 1000px;
+        }
+
+        span a {
+            font-size: 16px;
+            letter-spacing: 1px;
+            transform-style: preserve-3d;
+            transform: translateZ(-25px);
+            transition: transform .25s;
+           
+        }
+
+        span a:before,
+        span a:after {
+            position: absolute;
+            content: "BACK";
+            height: 45px;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid black;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        span a:hover {
+            transform: translateZ(-25px) rotateX(-90deg);
+        }
+
+        span a:before {
+            color: #fff;
+            background: #000;
+            transform: rotateY(0deg) translateZ(25px);
+        }
+
+        span a:after {
+            color: #000;
+            transform: rotateX(90deg) translateZ(25px);
+        }
+
+        .back-game {
+            position: relative;
+            left: -15%;
+            right: 0;
+            top: 45%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blur"></div>
+    <div class="main" id="main">
+        <div class="wrapper centered">
+            <article class="letter">
+                <form action="">
+                    <div class="side">
+                        <h1>Contact us</h1>
+
+                        <p>
+                            <textarea id="message" name="message" placeholder="Your message"></textarea>
+                        </p>
+                    </div>
+                    <div class="side">
+                        <p>
+                            <input id="name" type="text" name="name" placeholder="Your name">
+                        </p>
+                        <p>
+                            <input id="email" type="email" name="email" placeholder="Your email">
+                        </p>
+                        <p>
+                            <button type="submit" id="sendLetter">Send</button>
+                        </p>
+
+                    </div>
+                </form>
+            </article>
+            <div class="envelope front"></div>
+            <div class="envelope back"></div>
+        </div>
+        <p class="result-message centered">Thank you for your message</p>
+        <div class="back-game">
+            <span><a href="home.html"></a></span>
+        </div>
+    </div>
+    <div class="particles" id="particles"></div>
+
+
+
+
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    //Ajax Contact
+    $(document).ready(function () {
+        $(document).on('click', '#sendLetter', function (e) {
+            e.preventDefault();
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var message = $('#message').val();
+            if (message) {
+                $.ajax({
+                    type: "GET",
+                    url: "https://script.google.com/macros/s/AKfycbzyspd2zvw_r-mWrfr0gWq7EUoTxQ7qDP4FX_opkTnQVQp6GXUfNtwUcPFKM49deO7uhA/exec",
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        name: name,
+                        email: email,
+                        message: message
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        swal({
+                            title: "Notification",
+                            text: response.message,
+                            icon: 'success',
+                            button: 'OK',
+                        })
+                    },
+                    error: function (response) {
+                        swal({
+                            title: "Notification",
+                            text: response.error,
+                            icon: 'error',
+                            button: 'OK',
+                        })
+                    }
+                })
+                reset();
+            } else {
+                swal({
+                    title: "Notification",
+                    text: "The field must have a value",
+                    icon: 'error',
+                    button: 'OK',
+                })
+                reset();
+            }
+        });
+    });
+
+    function reset() {
+        $("#name").val('');
+        $("#email").val('');
+        $("#message").val('');
+    }
+</script>
+<script src="./src/Animation.js"></script>
+<script src="./src/Support.js"></script>
+
+</html>

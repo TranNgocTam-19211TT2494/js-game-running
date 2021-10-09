@@ -20,19 +20,4 @@ let canvasCreator = {
     }
     
 };
-// let divBack = {
-//     class: 'back-home',
-    
 
-//     create: function () {
-//         back = document.createElement("a");
-       
-//         back.class = this.class;
-//         context2 =  document.createTextNode("Hi there and greetings!"); 
-//         document.body.appendChild(back);
-
-//         return context2;
-       
-//     }
-    
-// };
